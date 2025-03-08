@@ -2,8 +2,6 @@
 # Quiz 1
 
 import streamlit as st
-import numpy as np
-from skimage.io import imread
 
 st.title('Quiz 1')
 st.subheader('Pregunta 1:')
