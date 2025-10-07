@@ -4,3 +4,4 @@ numpy # Example for other libraries
 pandas # Example for other libraries
 folium
 streamlit_folium
+pyproj
