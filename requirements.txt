@@ -2,3 +2,4 @@ streamlit
 plotly
 numpy # Example for other libraries
 pandas # Example for other libraries
+folium
