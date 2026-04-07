@@ -51,7 +51,7 @@ if uploaded_file:
 
     warped = dst
 
-    # --- Grid overlay (sin cv2) ---
+    # --- Grid overlay ---
     def add_grid(image, step=50):
         img_copy = image.copy()
         img_copy[::step, :] = 255
