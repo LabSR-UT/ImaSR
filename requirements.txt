@@ -6,4 +6,4 @@ folium
 streamlit_folium
 matplotlib
 pyproj
-
+cv2
