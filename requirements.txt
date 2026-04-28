@@ -8,4 +8,4 @@ matplotlib
 pyproj
 rasterio
 tifffile
-PIL
+pillow
