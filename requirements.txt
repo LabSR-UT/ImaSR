@@ -7,3 +7,5 @@ streamlit_folium
 matplotlib
 pyproj
 rasterio
+tifffile
+PIL
