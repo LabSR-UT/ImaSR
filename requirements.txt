@@ -11,3 +11,4 @@ tifffile
 pillow
 scikit-image
 scipy
+rioxarray
