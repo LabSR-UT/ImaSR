@@ -9,3 +9,5 @@ pyproj
 rasterio
 tifffile
 pillow
+scikit-image
+scipy
