@@ -14,37 +14,42 @@ Se calculara:
 - LST (°C)
 """)
 
+# Upload files
+col1, col2 = st.columns(2)
+col3, col4 = st.columns(2)
 
+with col1:
+    red_file = st.file_uploader("Cargar Banda 4 (Red)", type=["tif"])
 
-# Google. cloud image folder
-url = 'https://storage.googleapis.com/gcp-public-data-landsat/LC08/01/042/034/LC08_L1TP_042034_20170616_20170629_01_T1/'
+with col2:
+    nir_file = st.file_uploader("Cargar Banda 5 (NIR)", type=["tif"])
 
-# RGB images file names with file extensions
-redband = 'LC08_L1TP_042034_20170616_20170629_01_T1_B{}.TIF'.format(4) 
-nirband = 'LC08_L1TP_042034_20170616_20170629_01_T1_B{}.TIF'.format(5)
-tempband10 = 'LC08_L1TP_042034_20170616_20170629_01_T1_B{}.TIF'.format(10)
-tempband11 = 'LC08_L1TP_042034_20170616_20170629_01_T1_B{}.TIF'.format(11)
+with col3:
+    thermal_file10 = st.file_uploader("Cargar Banda 10 (SWIR10)", type=["tif"])
+    
+with col4:
+    thermal_file11 = st.file_uploader("Cargar Banda 11 (SWIR11)", type=["tif"])
 
-if redband and nirband and tempband10 and tempband11:
+if red_file and nir_file and thermal_file10 and thermal_file11:
 
     # Read bands
-    with rasterio.open(url+redband) as src:
+    with rasterio.open(red_file) as src:
         redImage = src.read(1).astype('f4')
 
-    with rasterio.open(url+nirband) as src:
+    with rasterio.open(nir_file) as src:
         nirImage = src.read(1).astype('f4')
     
-    with rasterio.open(url+tempband10) as src:
+    with rasterio.open(thermal_file10) as src:
         tempImage10 = src.read(1).astype('f4')
 
-    with rasterio.open(url+tempband11) as src:
+    with rasterio.open(thermal_file11) as src:
         tempImage11 = src.read(1).astype('f4')
 
     st.success("Bandas Roja, Infrarroja, SWIR10 y SWIR11 cargadas bien!")
     
     option = st.selectbox(
-    "How would you like to be contacted?",
-    ('jiminez-munoz', 'kerr','mc-clain','price', 'sobrino-1993'))
+    "Escoja un metodo:",
+    ('jiminez-munoz', 'kerr','price', 'sobrino-1993'))
 
     method = option
     lst_image_split_window = split_window(
@@ -100,3 +105,4 @@ if redband and nirband and tempband10 and tempband11:
 
 else:
     st.info("Please upload all required bands.")
+    st.info("Debe cargar todas las bandas requeridas.")
